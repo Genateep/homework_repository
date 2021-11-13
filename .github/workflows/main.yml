@@ -19,4 +19,4 @@ jobs:
           ls -la
           black .
           isort --check .
-          py.test tests
+          py.test homework1/tests
