@@ -7,8 +7,8 @@ def find_maximal_subarray_sum(nums: List[int], k: int) -> int:
 
     n = len(nums)
 
-    if not 0 < k < n:
-        raise ValueError("Subarray length must be between 0 and array length")
+    if not 0 < k <= n:
+        raise ValueError("Subarray must be between 0 and array")
     sub_sum = 0
     res = nums[0]
 
