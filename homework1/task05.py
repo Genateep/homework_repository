@@ -1,16 +1,23 @@
-"""
-Given a list of integers numbers "nums".
-
-You need to find a sub-array with length less equal to "k", with maximal sum.
-
-The written function should return the sum of this sub-array.
-
-Examples:
-    nums = [1, 3, -1, -3, 5, 3, 6, 7], k = 3
-    result = 16
-"""
 from typing import List
 
 
 def find_maximal_subarray_sum(nums: List[int], k: int) -> int:
-    ...
+
+    """Returns the maximal sum of subarray with length <= k"""
+
+    n = len(nums)
+
+    if not 0 < k < n:
+        raise ValueError("Subarray length must be between 0 and array length")
+    sub_sum = 0
+    res = nums[0]
+
+    for i in range(k):
+        sub_sum = sub_sum + nums[i]
+        cur_sum = sub_sum
+        max_sum = sub_sum
+        for j in range(i + 1, n):
+            cur_sum = cur_sum + nums[j] - nums[j - i - 1]
+            max_sum = max(max_sum, cur_sum)
+        res = max(max_sum, res)
+    return res
