@@ -11,7 +11,8 @@ def check_fib(data: Sequence[int]) -> bool:
         elif data.index(i) == 1 and i == 1:
             continue
         elif (
-            data.index(i) > 1 and i == data[data.index(i) - 1] + data[data.index(i) - 2]
+            data.index(i) > 1
+                and i == data[data.index(i) - 1] + data[data.index(i) - 2]
         ):
             continue
         else:

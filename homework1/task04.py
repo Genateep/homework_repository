@@ -2,9 +2,15 @@ from collections import defaultdict
 from typing import List
 
 
-def check_sum_of_four(a: List[int], b: List[int], c: List[int], d: List[int]) -> int:
+def check_sum_of_four(
+        a: List[int],
+        b: List[int],
+        c: List[int],
+        d: List[int]
+        ) -> int:
 
-    """Computes how many tuples (i, j, k, l) there are such that A[i] + B[j] + C[k] + D[l] is zero."""
+    """Computes how many tuples (i, j, k, l)
+    there are such that A[i] + B[j] + C[k] + D[l] is zero."""
 
     ref = defaultdict(int)
 
@@ -14,6 +20,6 @@ def check_sum_of_four(a: List[int], b: List[int], c: List[int], d: List[int]) ->
     count = 0
 
     for k in c:
-        for l in d:
-            count += ref[-k - l]
+        for m in d:
+            count += ref[-k - m]
     return count
