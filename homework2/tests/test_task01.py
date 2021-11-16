@@ -7,7 +7,7 @@ from homework2.task01 import get_longest_diverse_words
     "file_path, ans",
     [
         (
-            "source/data.txt",
+            "homework2/tests/source/data.txt",
             [
                 "unmißverständliche",
                 "Bevölkerungsabschub",
