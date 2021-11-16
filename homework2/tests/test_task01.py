@@ -1,5 +1,4 @@
 import pytest
-
 from homework2.task01 import (
     count_punctuation_chars,
     get_longest_diverse_words,
