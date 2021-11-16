@@ -36,7 +36,13 @@ def get_rarest_char(file_path: str) -> str:
 
 
 def count_punctuation_chars(file_path: str) -> int:
-    ...
+    """Counts every punctuation char"""
+    count = 0
+    with open(file_path, encoding='unicode-escape') as f:
+        for char in ''.join(f.read().split()):
+            if not (char.isdigit() or char.isalpha()):
+                count += 1
+    return count
 
 
 def count_non_ascii_chars(file_path: str) -> int:
