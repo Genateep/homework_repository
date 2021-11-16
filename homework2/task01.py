@@ -1,11 +1,3 @@
-"""
-Given a file containing text. Complete using only default collections:
-    1) Find 10 longest words consisting from largest amount of unique symbols
-    2) Find rarest symbol for document
-    3) Count every punctuation char
-    4) Count every non ascii char
-    5) Find most common non ascii char for document
-"""
 import re
 from typing import List
 
@@ -46,16 +38,24 @@ def count_punctuation_chars(file_path: str) -> int:
 
 
 def count_non_ascii_chars(file_path: str) -> int:
-    ...
+    """Counts every non ascii char"""
+    count = 0
+    with open(file_path, encoding='unicode-escape') as f:
+        for char in ''.join(f.read().split()):
+            if ord(char) > 127:
+                count += 1
+    return count
 
 
 def get_most_common_non_ascii_char(file_path: str) -> str:
-    # chars = dict()
-    # with open(file, encoding='unicode-') as f:
-    #     for
-    #         for c in someString:
-    #             if 0 <= ord(c) <= 127:
-    #             # this is a ascii character.
-    #             else:
-    #         # this is a non-ascii character. Do something.
-    ...
+    """Finds most common non ascii char for document"""
+    non_ascii_chars = {}
+    with open(file_path, encoding='unicode-escape') as f:
+        for char in ''.join(f.read().split()):
+            if ord(char) > 127:
+                if char in non_ascii_chars:
+                    non_ascii_chars[char] += 1
+                else:
+                    non_ascii_chars[char] = 1
+    res = sorted(non_ascii_chars.items(), key=lambda item: item[1])[-1][0]
+    return res
