@@ -12,7 +12,7 @@ from typing import List
 
 def get_longest_diverse_words(file_path: str) -> List[str]:
     """Finds 10 longest words from largest amount of unique symbols"""
-    words = dict()
+    words = {}
     with open(file_path, encoding='unicode-escape') as f:
         decoded = re.sub(r'[^\w\d\s]+', '', f.read())
         for word in decoded.split():
@@ -23,7 +23,16 @@ def get_longest_diverse_words(file_path: str) -> List[str]:
 
 
 def get_rarest_char(file_path: str) -> str:
-    ...
+    """Finds rarest symbol for document"""
+    chars = {}
+    with open(file_path, encoding='unicode-escape') as f:
+        for char in ''.join(f.read().split()):
+            if char in chars:
+                chars[char] += 1
+            else:
+                chars[char] = 1
+    res = sorted(chars.items(), key=lambda item: item[1])[0][0]
+    return res
 
 
 def count_punctuation_chars(file_path: str) -> int:
