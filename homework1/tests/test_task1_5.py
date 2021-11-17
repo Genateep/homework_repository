@@ -11,5 +11,9 @@ from homework1.task05 import find_maximal_subarray_sum
         ([1, -50, 0, -20, 10], 3, 10),
     ],
 )
-def test_positive_cases(nums, k, ans):
+def test_find_maximal_subarray_sum(nums, k, ans):
     assert find_maximal_subarray_sum(nums, k) == ans
+
+
+def test_find_maximal_subarray_sum_negative_case():
+    assert not find_maximal_subarray_sum([100, 50], 1) == 50

@@ -9,7 +9,7 @@ def find_maximum_and_minimum(file_name: str) -> Tuple[int, int]:
 
     with open(file_name) as fi:
         for line in fi:
-            if len(line.strip()) > 0:
-                nums.update(map(int, line.split()))
+            for n in line.split():
+                nums.add(int(n))
 
-    return min(nums), max(nums)
+    return max(nums), min(nums)
