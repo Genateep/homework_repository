@@ -10,7 +10,7 @@ def timed_cache(times: int):
 
         def decorate(*args, **kwargs):
             key = (tuple(args), hash(tuple(sorted(kwargs.items()))))
-            if key not in memo:
+            if key not in cached:
                 cached[key] = func(*args, **kwargs)
                 cached['times'] = times
             else:
