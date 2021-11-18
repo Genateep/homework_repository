@@ -5,17 +5,15 @@ def cache(func: Callable) -> Callable:
     """Accepts another function as an argument. Then it
     should return such a function, so the every call to initial one
     should be cached"""
-    memo = {}
+    cached = dict()
 
-    def wrapper(*args):
-        if args in memo:
-            return memo[args]
-        else:
-            rv = func(*args)
-            memo[args] = rv
-            return rv
+    def decorate(*args, **kwargs):
+        key = (tuple(args), hash(tuple(sorted(kwargs.items()))))
+        if key not in cached:
+            cached[key] = func(*args, **kwargs)
+        return cached[key]
 
-    return wrapper
+    return decorate
 
 
 def some_func(a, b: int) -> int:
