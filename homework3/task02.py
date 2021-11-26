@@ -19,6 +19,6 @@ def slow_calculate(value):
 
 def mult(func, values):
     """Returns time of parallel execution of func"""
-    with Pool() as pool:
+    with Pool(multiprocessing.cpu_count() * 25) as pool:
         res = sum(pool.map(func, values))
     return res
