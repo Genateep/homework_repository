@@ -2,7 +2,7 @@ import hashlib
 import random
 import struct
 import time
-from multiprocessing import Pool
+from multiprocessing import Pool, cpu_count
 
 # Calculate total sum of slow_calculate() of all numbers starting from 0 to 500.
 # Calculation time should not take more than a minute.
@@ -19,6 +19,6 @@ def slow_calculate(value):
 
 def mult(func, values):
     """Returns time of parallel execution of func"""
-    with Pool(multiprocessing.cpu_count() * 25) as pool:
+    with Pool(cpu_count() * 25) as pool:
         res = sum(pool.map(func, values))
     return res
