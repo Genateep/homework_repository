@@ -48,7 +48,7 @@ class Homework:
     method is_active: checks deadline
     """
 
-    def __init__(self, text: str, deadline: int) -> None:
+    def __init__(self, text: str, deadline: int):
         self.text = text
         self.deadline = datetime.timedelta(days=deadline)
         self.created = datetime.datetime.now()
@@ -65,7 +65,7 @@ class Student:
     method do_homework: returns Homework if in deadline
     """
 
-    def __init__(self, first_name: str, last_name: str) -> None:
+    def __init__(self, first_name: str, last_name: str):
         self.first_name = first_name
         self.last_name = last_name
 
@@ -82,7 +82,7 @@ class Teacher:
     method create_homework: creates Homework instance
     """
 
-    def __init__(self, first_name: str, last_name: str) -> None:
+    def __init__(self, first_name: str, last_name: str):
         self.first_name = first_name
         self.last_name = last_name
 
