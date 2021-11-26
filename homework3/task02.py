@@ -17,11 +17,8 @@ def slow_calculate(value):
     return sum(struct.unpack('<' + 'B' * len(data), data))
 
 
-def mult(func):
+def mult(func, values):
     """Returns time of parallel execution of func"""
-    values = [x for x in range(500)]
-    start = time.time()
-    with Pool(50) as pool:
-        pool.map(func, values)
-    end = time.time()
-    return end - start
+    with Pool() as pool:
+        res = sum(pool.map(func, values))
+    return res
