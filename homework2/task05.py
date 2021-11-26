@@ -1,19 +1,19 @@
 from typing import Any, Iterable
 
 
-def custom_range(itr: Iterable[Any], *args) -> list:
+def custom_range(
+    itr: Iterable[Any],
+    start: Any,
+    stop: Any = None,
+    step: int = 1,
+) -> list:
     """Function that accepts any iterable of unique values and then
     it behaves as range function"""
-    start, stop, step = 0, len(itr) - 1, 1
-
-    if len(args) == 0:
-        pass
-    elif len(args) == 1:
-        stop = itr.index(args[0])
-    elif len(args) == 2:
-        start, stop = itr.index(args[0]), itr.index(args[1])
-    elif len(args) == 3:
-        start, stop, step = itr.index(args[0]), itr.index(args[1]), args[2]
+    if not stop:
+        start = 0
+        stop = itr.index(start)
     else:
-        raise TypeError("More than 4 arguments were passed in!")
+        start = itr.index(start)
+        stop = itr.index(stop)
+
     return list(itr)[start:stop:step]
