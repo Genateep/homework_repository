@@ -41,7 +41,7 @@ def test_count_non_ascii_chars():
     assert count_non_ascii_chars(
         file_path,
         encoding='unicode-escape'
-    ) == 2971
+    ) == 2972
 
 
 def test_get_most_common_non_ascii_char():
