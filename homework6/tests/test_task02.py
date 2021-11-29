@@ -1,4 +1,5 @@
 import datetime
+
 from pytest import raises
 
 from homework6.task02 import (DeadlineError, Homework, HomeworkError,
