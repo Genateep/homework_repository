@@ -1,8 +1,8 @@
 import datetime
+from pytest import raises
 
 from homework6.task02 import (DeadlineError, Homework, HomeworkError,
                               HomeworkResult, Student, Teacher)
-from pytest import raises
 
 
 def test_user_attributes():
