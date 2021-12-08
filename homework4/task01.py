@@ -36,6 +36,6 @@ def read_magic_number(path: str) -> bool:
     try:
         with open(file=path, encoding='utf-8') as file:
             line = file.readline().strip()
-            return line.isdigit() and (1.0 <= float(line) < 3.0)
+            return line.replace('.', '', 1).isdigit() and (1.0 <= float(line) < 3.0)
     except Exception:
         raise ValueError('ERROR: no path or file is not readable')

@@ -5,12 +5,16 @@ import pytest
 
 from homework4.task02 import count_dots_on_i
 
-url = "mocked"
+url = "https://mocked_url.com/"
+html = "<html>\n<head>iiiii</head>\n<body>\niiiiii\n</body>\n</html>"
+answer = 11
 
 
-def test_count_dots_on_i_positive():
-    mocked_count_dots_on_i = Mock(count_dots_on_i, return_value=11)
-    assert mocked_count_dots_on_i(url) == 11
+def test_count_dots_on_i_positive(monkeypatch):
+    mocked_urlopen = Mock()
+    mocked_urlopen().read.return_value = html
+    monkeypatch.setattr("homework4.task02.urlopen", mocked_urlopen)
+    assert count_dots_on_i(url) == answer
 
 
 def test_count_dots_on_i_negative(monkeypatch):

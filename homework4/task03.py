@@ -30,5 +30,5 @@ def my_precious_logger(text: str):
     Receives a string and write it to stderr if line starts with
     "error"(in any case letters) and to the stdout otherwise.
     """
-    first_word = re.match(r'error|Error|ERROR', text)
+    first_word = text.lower().startswith('error')
     print(text, file=sys.stderr if first_word else sys.stdout)

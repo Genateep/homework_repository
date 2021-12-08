@@ -7,7 +7,7 @@ from homework4.task01 import read_magic_number
 temp = []  # Collects absolute paths of temporary files
 
 
-@pytest.fixture(params=['1', '2'])
+@pytest.fixture(params=['1', '2.5'])
 def make_test_file_true(tmp_path, request):
     global temp
     temp_dir = tmp_path / 'tests'
