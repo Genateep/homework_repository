@@ -78,7 +78,7 @@ def count_non_ascii_chars(file_path: str, encoding='utf8') -> int:
     """Counts every non ascii char"""
     count = 0
     for char in open_file(file_path, encoding=encoding):
-        if ord(char) > 127:
+        if not char.isascii():
             count += 1
     return count
 
@@ -87,7 +87,7 @@ def get_most_common_non_ascii_char(file_path: str, encoding='utf8') -> str:
     """Finds most common non ascii char for document"""
     non_ascii_chars = {}
     for char in open_file(file_path, encoding=encoding):
-        if ord(char) > 127:
+        if not char.isascii():
             if char in non_ascii_chars:
                 non_ascii_chars[char] += 1
             else:
