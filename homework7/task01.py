@@ -27,21 +27,30 @@ example_tree = {
 }
 
 
-def counter(tree: Any, element: Any, count: int) -> int:
+def find_occurrences(tree: dict, element: Any, count: int = 0) -> int:
+    """Takes tree and element and finds the number of occurrences
+    of this element in the tree
+
+    :param tree: tree that can only contains basic structures like
+        str, list, tuple, dict, set, int, bool
+    :type tree: dict
+    :param element: an object in tree to find
+    :type element: str, list, tuple, dict, set, int, bool
+    :param count: defaults to 0, used to counts occurrences recursively
+    :type count: int
+    :return: number of occurrences
+    :rtype: int
+    """
     if tree == element:
         count += 1
     elif isinstance(tree, (set, list, tuple)):
         for item in tree:
-            count = counter(item, element, count)
+            count = find_occurrences(item, element, count)
     elif isinstance(tree, dict):
         for key, value in tree.items():
-            count = counter(key, element, count)
-            count = counter(value, element, count)
+            count = find_occurrences(key, element, count)
+            count = find_occurrences(value, element, count)
     return count
-
-
-def find_occurrences(tree: dict, element: Any) -> int:
-    return counter(tree, element, count=0)
 
 
 if __name__ == '__main__':
