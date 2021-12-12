@@ -1,4 +1,5 @@
-# I decided to write a code that generates data filtering object from a list of keyword parameters:
+# I decided to write a code that generates data filtering object
+# from a list of keyword parameters:
 
 
 class Filter:
@@ -15,7 +16,8 @@ class Filter:
 
 
 # example of usage:
-# positive_even = Filter(lamba a: a % 2 == 0, lambda a: a > 0, lambda a: isinstance(int, a)))
+# positive_even = Filter(lamba a: a % 2 == 0,
+# lambda a: a > 0, lambda a: isinstance(int, a)))
 # positive_even.apply(range(100)) should return only even numbers from 0 to 99
 
 
@@ -43,6 +45,8 @@ sample_data = [
     {"is_dead": True, "kind": "parrot", "type": "bird", "name": "polly"},
 ]
 
-# make_filter(name='polly', type='bird').apply(sample_data) should return only second entry from the list
+# make_filter(name='polly', type='bird').apply(sample_data)
+# should return only second entry from the list
 
-# There are multiple bugs in this code. Find them all and write tests for faulty cases.
+# There are multiple bugs in this code.
+# Find them all and write tests for faulty cases.

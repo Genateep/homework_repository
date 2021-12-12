@@ -30,7 +30,10 @@ def instances_counter(cls):
     setattr(cls, "__new__", staticmethod(__new__))
     setattr(cls, "counter", 0)
     setattr(cls, "get_created_instances", classmethod(get_created_instances))
-    setattr(cls, "reset_instances_counter", classmethod(reset_instances_counter))
+    setattr(cls,
+            "reset_instances_counter",
+            classmethod(reset_instances_counter)
+            )
 
     return cls
 
