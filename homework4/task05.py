@@ -3,7 +3,8 @@ This task is optional.
 
 Write a generator that takes a number N as an input
 and returns a generator that yields N FizzBuzz numbers*
-Don't use any ifs, you can find an approach for the implementation in this video**.
+Don't use any ifs, you can find an approach for the implementation
+in this video**.
 
 
 Definition of done:
