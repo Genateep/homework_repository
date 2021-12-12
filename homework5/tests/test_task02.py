@@ -1,3 +1,4 @@
+import functools
 import pytest
 
 from homework5.task02 import custom_sum, func_saver
