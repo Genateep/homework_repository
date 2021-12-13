@@ -24,6 +24,7 @@ you are permitted to read it entirely into memory.
 
 
 class KeyValueStorage:
+    """wrapper class to access a storage-file by key-attributes"""
     def __init__(self, path: str):
         existing_builtins = set(self.__dict__.keys())
 
