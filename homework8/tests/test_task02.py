@@ -1,6 +1,6 @@
 from homework8.task02 import TableData
 
-path = 'example.sqlite'
+path = 'homework8/tests/example.sqlite'
 
 
 def test_tabledata_len():

@@ -2,8 +2,8 @@ import pytest
 
 from homework8.task01 import KeyValueStorage
 
-PATH = 'task1.txt'
-PATH2 = 'task1_2.txt'
+PATH = 'homework8/tests/task1.txt'
+PATH2 = 'homework8/tests/task1_2.txt'
 
 
 def test_keyvaluestorage_items():
