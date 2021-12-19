@@ -22,5 +22,5 @@ from typing import List, Union, Iterator
 def merge_sorted_files(file_list: List[Union[Path, str]]) -> Iterator:
     """Merges integers from sorted files and returns an iterator
     """
-    data = (number for number in (map(int, item) for item in map(open, file_list)))
+    data = (num for num in (map(int, item) for item in map(open, file_list)))
     yield from list(merge(*data))
