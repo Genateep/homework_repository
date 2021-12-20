@@ -1,8 +1,8 @@
 from homework9.task01 import merge_sorted_files as m_f
 
-file1 = 'homework9/tests/file1.txt'
-file2 = 'homework9/tests/file2.txt'
-file3 = 'homework9/tests/file3.txt'
+file1 = 'homework9/tests/source/file1.txt'
+file2 = 'homework9/tests/source/file2.txt'
+file3 = 'homework9/tests/source/file3.txt'
 
 
 def test_merge_sorted_files():
