@@ -2,7 +2,7 @@ from pathlib import Path
 
 from homework9.task03 import universal_file_counter
 
-dir_path = Path.cwd()
+dir_path = Path('homework9/tests/source')
 
 
 def test_count_lines():
