@@ -1,5 +1,6 @@
-import aiohttp
 import asyncio
+
+import aiohttp
 import pytest
 
 from homework10.main import get_usd_rate_from_cbr
