@@ -45,14 +45,18 @@ def tic_tac_toe_checker(board: List[List]) -> str:
         ):
             return board[0][0]
         if (
-            len(set([board[i][len(board) - i - 1] for i in range(len(board))])) == 1
+            len(
+                set(
+                    [board[i][len(board) - i - 1] for i in range(len(board))]
+                )
+            ) == 1
             and board[0][len(board) - 1] != "-"
         ):
             return board[0][len(board) - 1]
         return 0
 
-    def _check_winner(board):
-        return _check_diagonals(board) or _check_rows(board) or _check_columns(board)
+    def _check_winner(b):
+        return _check_diagonals(b) or _check_rows(b) or _check_columns(b)
 
     if _check_winner(board) == "x":
         return "x wins!"
