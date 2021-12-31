@@ -26,7 +26,7 @@ you are permitted to read it entirely into memory.
 class KeyValueStorage:
     """wrapper class to access a storage-file by key-attributes"""
     def __init__(self, path: str):
-        existing_builtins = set(self.__dict__.keys())
+        existing_builtins = set(dir(self))
 
         with open(path) as file:
             for item in file.read().split():
@@ -35,6 +35,8 @@ class KeyValueStorage:
                     if value.isdigit():
                         value = int(value)
                     self.__dict__[key] = value
+                elif key in existing_builtins:
+                    pass
                 else:
                     raise ValueError(f"{item} unacceptable")
 
