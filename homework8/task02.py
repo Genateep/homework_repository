@@ -41,41 +41,41 @@ class TableData:
     def __init__(self, path: str, table_name: str):
         self.path = path
         self.table_name = table_name
-        self.connection = sqlite3.connect(self.path)
-        self.connection.row_factory = sqlite3.Row
-        self.cursor = self.connection.cursor()
+        self.__connection = sqlite3.connect(self.path)
+        self.__connection.row_factory = sqlite3.Row
+        self.__cursor = self.__connection.cursor()
 
     def __enter__(self):
         return self
 
     def __exit__(self, exc_type, exc_val, exc_tb):
-        self.connection.cursor().close()
-        self.connection.close()
+        self.__connection.cursor().close()
+        self.__connection.close()
 
     def __iter__(self):
-        yield from self.cursor.execute(
+        yield from self.__cursor.execute(
             f'SELECT * FROM {self.table_name}'
         )
 
     def __len__(self):
-        self.cursor.execute(f'SELECT count(*) FROM {self.table_name}')
-        return self.cursor.fetchone()[0]
+        self.__cursor.execute(f'SELECT count(*) FROM {self.table_name}')
+        return self.__cursor.fetchone()[0]
 
     def __getitem__(self, item: str):
-        self.cursor.execute(
+        self.__cursor.execute(
             f'SELECT * FROM {self.table_name} WHERE name = ?', (item,)
         )
-        return tuple(self.cursor.fetchone())
+        return tuple(self.__cursor.fetchone())
 
     def __contains__(self, item: str):
-        self.cursor.execute(
+        self.__cursor.execute(
             f'SELECT count(*) FROM {self.table_name} WHERE name = ?',
             (item,),
         )
-        return self.cursor.fetchone()[0] > 0
+        return self.__cursor.fetchone()[0] > 0
 
     def close(self):
         """closes the cursor and drops database connection
         """
-        self.connection.cursor().close()
-        self.connection.close()
+        self.__connection.cursor().close()
+        self.__connection.close()
