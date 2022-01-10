@@ -25,11 +25,10 @@ def universal_file_counter(
     """
     counter = 0
     tokenizer = tokenizer or str.splitlines
-    content_list = [
-        path.read_text()
-        for path in dir_path.rglob('*.' + file_extension)
-    ]
-    for file in content_list:
-        for _ in tokenizer(file):
-            counter += 1
+
+    for path in dir_path.rglob('*.' + file_extension):
+        with open(path) as f:
+            for _ in tokenizer(f.read()):
+                counter += 1
+
     return counter
