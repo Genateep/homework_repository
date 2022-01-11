@@ -5,8 +5,8 @@ name: CI
 on:
   push:
     paths-ignore:
-      - 'homework12/task01/polls/**'
-      - 'homework12/task01/project/**'
+      - '**/polls/**'
+      - '**/project/**'
 
 jobs:
   code_quality:
