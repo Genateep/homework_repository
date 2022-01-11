@@ -5,8 +5,8 @@ name: CI
 on:
   push:
     paths-ignore:
-      - '**/polls/**'
-      - '**/project/**'
+      - '*/*/polls/'
+      - '*/*/project/'
 
 jobs:
   code_quality:
