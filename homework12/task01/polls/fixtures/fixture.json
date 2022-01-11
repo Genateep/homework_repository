@@ -1,7 +1,7 @@
 [
 {
     "model": "polls.student",
-    "id": 1,
+    "pk": 1,
     "fields": {
         "first_name": "Lev",
         "last_name": "Sokolov"
@@ -9,7 +9,7 @@
 },
 {
     "model": "polls.teacher",
-    "id": 1,
+    "pk": 1,
     "fields": {
         "first_name": "Daniil",
         "last_name": "Shadrin",
@@ -18,7 +18,7 @@
 },
 {
     "model": "polls.homework",
-    "id": 1,
+    "pk": 1,
     "fields": {
         "text": "Learn OOP",
         "deadline": "7 00:00:00",
@@ -27,7 +27,7 @@
 },
 {
     "model": "polls.homeworkresult",
-    "id": 1,
+    "pk": 1,
     "fields": {
         "homework": "Learn OOP",
         "author": 1,
