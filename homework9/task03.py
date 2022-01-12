@@ -28,7 +28,7 @@ def universal_file_counter(
 
     for path in dir_path.rglob('*.' + file_extension):
         with open(path) as f:
-            for _ in tokenizer(f.read()):
-                counter += 1
+            for line in f:
+                counter += len(tokenizer(line))
 
     return counter
