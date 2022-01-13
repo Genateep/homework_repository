@@ -1,5 +1,4 @@
 from django.test import TestCase
-
 from polls.models import Homework, HomeworkResult, Student, Teacher
 
 
