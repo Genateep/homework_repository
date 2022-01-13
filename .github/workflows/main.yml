@@ -2,12 +2,7 @@
 
 name: CI
 
-on:
-  push:
-    paths-ignore:
-      - 'homework12/task01/polls/**'
-      - '!homework12/task01/polls/tests.py'
-      - 'homework12/task01/project/**'
+on: [push]
 
 jobs:
   code_quality:

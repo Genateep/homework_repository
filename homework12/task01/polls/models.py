@@ -15,7 +15,11 @@ class Homework(models.Model):
 class HomeworkResult(models.Model):
     db_table = "homework_results"
 
-    homework = models.ForeignKey("Homework", to_field="text", on_delete=models.CASCADE)
+    homework = models.ForeignKey(
+        "Homework",
+        to_field="text",
+        on_delete=models.CASCADE
+    )
     author = models.ForeignKey("Student", on_delete=models.CASCADE)
     solution = models.CharField(max_length=50)
     created = models.DateTimeField()
@@ -41,4 +45,7 @@ class Student(User):
 
 class Teacher(User):
     db_table = "teachers"
-    homework_done = models.ForeignKey("HomeworkResult", on_delete=models.CASCADE)
+    homework_done = models.ForeignKey(
+        "HomeworkResult",
+        on_delete=models.CASCADE
+    )

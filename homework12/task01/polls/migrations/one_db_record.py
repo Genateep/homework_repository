@@ -13,7 +13,9 @@ class Migration(migrations.Migration):
 
         student = Student(first_name="Lev", last_name="Sokolov")
         homework = Homework(
-            text="Learn OOP", deadline=timedelta(days=7), created=datetime.now()
+            text="Learn OOP",
+            deadline=timedelta(days=7),
+            created=datetime.now()
         )
         result = HomeworkResult(
             homework=homework,
@@ -21,7 +23,11 @@ class Migration(migrations.Migration):
             solution="Done",
             created=datetime.now(),
         )
-        teacher = Teacher(first_name="Daniil", last_name="Shadrin", homework_done=result)
+        teacher = Teacher(
+            first_name="Daniil",
+            last_name="Shadrin",
+            homework_done=result
+        )
 
         student.save()
         homework.save()
