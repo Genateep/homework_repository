@@ -1,0 +1,38 @@
+[
+{
+    "model": "polls.student",
+    "pk": 1,
+    "fields": {
+        "first_name": "Lev",
+        "last_name": "Sokolov"
+    }
+},
+{
+    "model": "polls.teacher",
+    "pk": 1,
+    "fields": {
+        "first_name": "Daniil",
+        "last_name": "Shadrin",
+        "homework_done": 1
+    }
+},
+{
+    "model": "polls.homework",
+    "pk": 1,
+    "fields": {
+        "text": "Learn OOP",
+        "deadline": "7 00:00:00",
+        "created": "2021-01-10T07:15:03.276Z"
+    }
+},
+{
+    "model": "polls.homeworkresult",
+    "pk": 1,
+    "fields": {
+        "homework": "Learn OOP",
+        "author": 1,
+        "solution": "Done",
+        "created": "2021-01-10T07:15:03.276Z"
+    }
+}
+]
